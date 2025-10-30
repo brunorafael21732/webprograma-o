@@ -1,0 +1,53 @@
+/* Mobile-first, accessible basic styles */
+:root{
+  /* pink theme: slightly stronger light pink background and pink brand color */
+  --bg: #ffe6f2; /* a bit more pink than before */
+  --text: #222;
+  --brand: #d63384; /* pink brand color */
+  --muted: #7a4a63;
+}
+*{box-sizing:border-box}
+.html,body{height:100%}
+/* page transition helpers (slide horizontally) */
+html,body{height:100%}
+body{margin:0;font-family:Segoe UI, Roboto, Arial, sans-serif;background:var(--bg);color:var(--text);line-height:1.4;transition:transform .45s cubic-bezier(.2,.8,.2,1), opacity .35s ease-in-out;transform:translateX(0)}
+/* initial hidden state: slightly to the right and transparent */
+.page-hidden{opacity:0; transform: translateX(20px)}
+/* initial hidden state from left (used when navigating back) */
+.page-hidden-left{opacity:0; transform: translateX(-20px)}
+/* slide out to the left before navigating */
+.slide-out-left{opacity:0; transform: translateX(-100%); pointer-events:none}
+/* slide out to the right (unused by default) */
+.slide-out-right{opacity:0; transform: translateX(100%); pointer-events:none}
+.container{max-width:900px;margin:0 auto;padding:1rem}
+.site-header{background:var(--brand);color:#fff}
+.site-header .container{display:flex;align-items:center;justify-content:space-between}
+.brand{color:#fff;text-decoration:none;font-weight:700; font-family: 'Terminal', 'Courier New', Courier, monospace}
+.brand-large{line-height:1}
+.nav-list{list-style:none;margin:0;padding:0;display:flex;gap:1rem}
+.nav-list a{color:#fff;text-decoration:none}
+.hero{padding:1rem 0}
+.card{background:#f9f9f9;border-radius:6px;padding:1rem;margin-bottom:1rem}
+/* form fieldsets (Dados Pessoais, Endereço, Interesses) should be white blocks on the pink page */
+form fieldset{
+  background: #ffffff; /* white */
+  border: 1px solid #e6e6e6;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.02);
+}
+form legend{font-weight:700;padding:0 .25rem}
+h1,h2{margin:0 0 .5rem}
+form .form-actions{margin-top:1rem}
+label{display:block;margin:.5rem 0 0.25rem}
+input,select,button,textarea{font:inherit;padding:.5rem;border:1px solid #ccc;border-radius:4px;width:100%}
+button.btn{background:var(--brand);color:#fff;border:none;padding:.6rem 1rem;cursor:pointer}
+.visually-hidden{position:absolute;left:-9999px}
+
+/* Larger screens */
+@media(min-width:700px){
+  .nav-list{gap:1.5rem}
+  .card{padding:1.25rem}
+  .brand-large{font-size:2rem; font-weight:800}
+}
